@@ -17,7 +17,8 @@ contract Managed {
         assert(admins[msg.sender]);
         _;
     }
-
+    
+    /// #if_succeeds {:msg "only owner can add admins"} admins[msg.sender];
     function addAdminInternal(address addr) internal {
         admins[addr] = true;
     }
